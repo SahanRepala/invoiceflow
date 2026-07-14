@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { PageHeader } from '@/components/page-header';
 import { StatusBadge } from '@/components/status-badge';
+import { EmptyState } from '@/components/ui/empty-state';
 import {
   Table,
   TableBody,
@@ -190,43 +191,55 @@ export default function InvoicesPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {paginated.map((inv, i) => (
-              <motion.tr
-                key={inv.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: i * 0.03 }}
-                className="border-b transition-colors hover:bg-muted/50"
-              >
-                <TableCell className="font-medium">{inv.number}</TableCell>
-                <TableCell>
-                  <div>
-                    <p className="text-sm font-medium">{inv.clientName}</p>
-                    <p className="text-xs text-muted-foreground">{inv.clientCompany}</p>
-                  </div>
+            {paginated.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={6}>
+                  <EmptyState
+                    icon={FileText}
+                    title="No invoices found"
+                    description="Try adjusting your search or filters to find what you are looking for."
+                  />
                 </TableCell>
-                <TableCell className="text-right font-medium">{formatCurrency(inv.amount)}</TableCell>
-                <TableCell className="text-sm text-muted-foreground">{formatDate(inv.dueDate)}</TableCell>
-                <TableCell>
-                  <StatusBadge status={inv.status} />
-                </TableCell>
-                <TableCell className="text-right">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
-                        <MoreHorizontal className="h-4 w-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuItem><Eye className="mr-2 h-4 w-4" /> Preview</DropdownMenuItem>
-                      <DropdownMenuItem><Copy className="mr-2 h-4 w-4" /> Duplicate</DropdownMenuItem>
-                      <DropdownMenuItem><Download className="mr-2 h-4 w-4" /> Download PDF</DropdownMenuItem>
-                      <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </motion.tr>
-            ))}
+              </TableRow>
+            ) : (
+              paginated.map((inv, i) => (
+                <motion.tr
+                  key={inv.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: i * 0.03 }}
+                  className="border-b transition-colors hover:bg-muted/50"
+                >
+                  <TableCell className="font-medium">{inv.number}</TableCell>
+                  <TableCell>
+                    <div>
+                      <p className="text-sm font-medium">{inv.clientName}</p>
+                      <p className="text-xs text-muted-foreground">{inv.clientCompany}</p>
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-right font-medium">{formatCurrency(inv.amount)}</TableCell>
+                  <TableCell className="text-sm text-muted-foreground">{formatDate(inv.dueDate)}</TableCell>
+                  <TableCell>
+                    <StatusBadge status={inv.status} />
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                          <MoreHorizontal className="h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem><Eye className="mr-2 h-4 w-4" /> Preview</DropdownMenuItem>
+                        <DropdownMenuItem><Copy className="mr-2 h-4 w-4" /> Duplicate</DropdownMenuItem>
+                        <DropdownMenuItem><Download className="mr-2 h-4 w-4" /> Download PDF</DropdownMenuItem>
+                        <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </TableCell>
+                </motion.tr>
+              ))
+            )}
           </TableBody>
         </Table>
 

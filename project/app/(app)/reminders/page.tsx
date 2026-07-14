@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PageHeader } from '@/components/page-header';
 import { StatusBadge } from '@/components/status-badge';
+import { EmptyState } from '@/components/ui/empty-state';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Send, CalendarClock, X, BellRing, CheckCircle2, AlertCircle, Clock } from 'lucide-react';
 import { reminders } from '@/lib/mock-data/reminders';
@@ -92,10 +93,11 @@ export default function RemindersPage() {
           <Card>
             <div className="divide-y divide-border">
               {filtered.length === 0 ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <BellRing className="h-10 w-10 text-muted-foreground/40" />
-                  <p className="mt-3 text-sm text-muted-foreground">No reminders in this category.</p>
-                </div>
+                <EmptyState
+                  icon={BellRing}
+                  title="No reminders found"
+                  description="There are no reminders in this category."
+                />
               ) : (
                 filtered.map((r, i) => {
                   const Icon = statusIcons[r.status] ?? Clock;
