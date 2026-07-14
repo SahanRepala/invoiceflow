@@ -7,28 +7,17 @@ import {
   LayoutDashboard,
   FileText,
   Users,
-  CreditCard,
   BellRing,
-  BarChart3,
-  Settings,
-  User,
-  Sparkles,
 } from 'lucide-react';
 
 const navItems = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { label: 'Invoices', href: '/invoices', icon: FileText },
   { label: 'Clients', href: '/clients', icon: Users },
-  { label: 'Payments', href: '/payments', icon: CreditCard },
   { label: 'Reminder Automation', href: '/reminders', icon: BellRing },
-  { label: 'AI Reminder Writer', href: '/ai-reminder', icon: Sparkles },
-  { label: 'Analytics', href: '/analytics', icon: BarChart3 },
 ];
 
-const bottomItems = [
-  { label: 'Settings', href: '/settings', icon: Settings },
-  { label: 'Profile', href: '/profile', icon: User },
-];
+const bottomItems: { label: string; href: string; icon: any }[] = [];
 
 export function Sidebar() {
   const pathname = usePathname();
