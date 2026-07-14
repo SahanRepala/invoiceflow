@@ -22,7 +22,7 @@ export function StatCard({
   className,
 }: StatCardProps) {
   return (
-    <Card className={cn('p-5 shadow-soft', className)}>
+    <Card className={cn('p-5', className)}>
       <div className="flex items-start justify-between">
         <div className="space-y-1">
           <p className="text-sm font-medium text-muted-foreground">{title}</p>

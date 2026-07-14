@@ -90,7 +90,7 @@ export default function DashboardPage() {
           animate={{ opacity: 1, y: 0 }}
           className="lg:col-span-2"
         >
-          <Card className="p-6 shadow-soft">
+          <Card className="p-6">
             <div className="mb-4 flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium">Revenue Overview</p>
@@ -138,7 +138,7 @@ export default function DashboardPage() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}>
-          <Card className="p-6 shadow-soft">
+          <Card className="p-6">
             <p className="text-sm font-medium">Invoice Status</p>
             <p className="text-xs text-muted-foreground">Distribution by status</p>
             <div className="mt-4 h-48">
@@ -186,7 +186,7 @@ export default function DashboardPage() {
       {/* Activity + Reminders + Payments */}
       <div className="grid gap-4 lg:grid-cols-3">
         {/* Activity timeline */}
-        <Card className="p-6 shadow-soft">
+        <Card className="p-6">
           <p className="text-sm font-medium">Latest Activity</p>
           <div className="mt-4 space-y-4">
             {recentActivity.map((activity, i) => {
@@ -211,7 +211,7 @@ export default function DashboardPage() {
         </Card>
 
         {/* Upcoming reminders */}
-        <Card className="p-6 shadow-soft">
+        <Card className="p-6">
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium">Upcoming Reminders</p>
             <BellRing className="h-4 w-4 text-muted-foreground" />
@@ -235,7 +235,7 @@ export default function DashboardPage() {
         </Card>
 
         {/* Recent payments */}
-        <Card className="p-6 shadow-soft">
+        <Card className="p-6">
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium">Recent Payments</p>
             <CreditCard className="h-4 w-4 text-muted-foreground" />

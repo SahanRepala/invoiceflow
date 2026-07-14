@@ -53,7 +53,7 @@ export default function ClientsPage() {
             transition={{ delay: i * 0.04 }}
           >
             <Link href={`/clients/${client.id}`}>
-              <Card className="group h-full p-5 shadow-soft transition-all hover:shadow-card hover:-translate-y-0.5">
+              <Card className="group h-full p-5 transition-all hover:shadow-card hover:-translate-y-0.5">
                 <div className="flex items-start gap-3">
                   <div className={`flex h-11 w-11 items-center justify-center rounded-full text-sm font-medium text-white ${client.avatarColor}`}>
                     {client.initials}

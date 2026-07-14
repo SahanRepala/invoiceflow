@@ -65,7 +65,7 @@ export default function ClientProfilePage() {
       <div className="grid gap-4 lg:grid-cols-3">
         {/* Client info */}
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-          <Card className="p-6 shadow-soft">
+          <Card className="p-6">
             <div className="flex items-center gap-3">
               <div className={`flex h-14 w-14 items-center justify-center rounded-full text-lg font-medium text-white ${client.avatarColor}`}>
                 {client.initials}
@@ -105,7 +105,7 @@ export default function ClientProfilePage() {
             { label: 'Invoices', value: String(client.invoiceCount), icon: FileText, color: 'bg-success/10 text-success' },
           ].map((stat, i) => (
             <motion.div key={stat.label} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-              <Card className="p-5 shadow-soft">
+              <Card className="p-5">
                 <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${stat.color}`}>
                   <stat.icon className="h-5 w-5" />
                 </div>
@@ -118,7 +118,7 @@ export default function ClientProfilePage() {
       </div>
 
       {/* Invoices table */}
-      <Card className="shadow-soft">
+      <Card>
         <div className="p-6 pb-4">
           <p className="text-sm font-medium">Invoice History</p>
         </div>

@@ -177,7 +177,7 @@ export default function InvoicesPage() {
       </div>
 
       {/* Table */}
-      <Card className="shadow-soft">
+      <Card>
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">

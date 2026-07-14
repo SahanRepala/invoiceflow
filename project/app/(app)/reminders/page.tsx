@@ -66,7 +66,7 @@ export default function RemindersPage() {
           { label: 'Failed', value: counts.failed, icon: AlertCircle, color: 'bg-destructive/10 text-destructive' },
         ].map((stat, i) => (
           <motion.div key={stat.label} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-            <Card className="flex items-center gap-4 p-5 shadow-soft">
+            <Card className="flex items-center gap-4 p-5">
               <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${stat.color}`}>
                 <stat.icon className="h-5 w-5" />
               </div>
@@ -89,7 +89,7 @@ export default function RemindersPage() {
         </TabsList>
 
         <TabsContent value={tab} className="mt-4">
-          <Card className="shadow-soft">
+          <Card>
             <div className="divide-y divide-border">
               {filtered.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
