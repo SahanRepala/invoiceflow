@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { PageHeader } from '@/components/page-header';
 import { Search, Plus, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
-import { clients, formatCurrency } from '@/lib/data';
+import { clients } from '@/lib/mock-data/clients';
+import { formatCurrency } from '@/lib/data';
 import { useState } from 'react';
 
 export default function ClientsPage() {

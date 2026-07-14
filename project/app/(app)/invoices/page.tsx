@@ -42,7 +42,8 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
-import { invoices, clients, formatCurrency, formatDate, type InvoiceStatus } from '@/lib/data';
+import { invoices, clients } from '@/lib/mock-data/invoices';
+import { formatCurrency, formatDate, type InvoiceStatus } from '@/lib/data';
 import {
   DropdownMenu,
   DropdownMenuContent,

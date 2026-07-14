@@ -36,9 +36,8 @@ import {
   recentActivity,
   upcomingReminders,
   recentPayments,
-  formatCurrency,
-  formatDate,
-} from '@/lib/data';
+} from '@/lib/mock-data/dashboard';
+import { formatCurrency, formatDate } from '@/lib/data';
 
 const activityIcons: Record<string, React.ElementType> = {
   payment: CreditCard,

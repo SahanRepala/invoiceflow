@@ -8,7 +8,8 @@ import { PageHeader } from '@/components/page-header';
 import { StatusBadge } from '@/components/status-badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Send, CalendarClock, X, BellRing, CheckCircle2, AlertCircle, Clock } from 'lucide-react';
-import { reminders, formatCurrency, formatDate } from '@/lib/data';
+import { reminders } from '@/lib/mock-data/reminders';
+import { formatCurrency, formatDate } from '@/lib/data';
 
 const typeLabels: Record<string, string> = {
   'pre-due': 'Pre-due reminder',
