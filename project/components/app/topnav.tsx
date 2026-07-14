@@ -1,6 +1,6 @@
 'use client';
 
-import { Search, Bell, Menu } from 'lucide-react';
+import { Search, Bell, Menu, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -12,9 +12,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import Link from 'next/link';
+import { signOut } from '@/lib/supabase/auth';
+import { useRouter } from 'next/navigation';
 
 export function TopNav() {
+  const router = useRouter();
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-border bg-card/80 px-4 glass lg:px-6">
       <Button variant="ghost" size="icon" className="lg:hidden">
@@ -71,8 +73,15 @@ export function TopNav() {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-              <Link href="/login">Sign out</Link>
+            <DropdownMenuItem
+              className="text-destructive cursor-pointer"
+              onClick={async () => {
+                await signOut();
+                router.push('/login');
+                router.refresh();
+              }}
+            >
+              <LogOut className="mr-2 h-4 w-4" /> Sign out
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
